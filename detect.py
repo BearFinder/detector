@@ -1,11 +1,11 @@
-from utils import draw_boxes
+from .utils import draw_boxes
 from detecto.utils import read_image
 from detecto.core import Dataset
 from detecto.core import Model
 
 
 class Finder:
-    def __init__(self, model_file: str, desired_class: str):
+    def __init__(self, model_file: str, desired_class: str="WhiteBear"):
         self.desired_class = desired_class
         self.model_file = model_file
         self.model = Model.load(model_file, [desired_class])
