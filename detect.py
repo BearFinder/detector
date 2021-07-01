@@ -10,10 +10,10 @@ class Finder:
         self.model_file = model_file
         self.model = Model.load(model_file, [desired_class])
 
-    def find(self, image_file: str) -> tuple:
+    def find(self, image_file: str, color: str = "#AA0000") -> tuple:
         img = read_image(image_file)
         _, boxes, _ = self.model.predict(img)
-        return draw_boxes(img_file=image_file, boxes=boxes) # file_save_name="out_" + image_file)
+        return draw_boxes(img_file=image_file, boxes=boxes, color=color) # file_save_name="out_" + image_file)
 
     def learn(self, path: str, epochs: int, learning_rate: float, lr_step_size: int, verbose: bool):
         MyDataset = Dataset(path)
