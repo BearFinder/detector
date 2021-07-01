@@ -4,6 +4,14 @@ from detecto.core import Dataset
 from detecto.core import Model
 
 
+def fit_boxes(boxes):
+    points =  []
+    for i, e in enumerate(boxes):
+        points.append((e[0], e[1]))
+        points.append((e[2], e[3]))
+    return sorted(points)
+
+
 class Finder:
     def __init__(self, model_file: str, desired_class: str="WhiteBear"):
         self.desired_class = desired_class
