@@ -4,7 +4,7 @@ STEP = 2
 
 
 def draw_boxes(img_file: str, boxes: list, color: str="#1700FFAA") -> Image: # file_save_name="outFile.JPG") -> Image:
-    source_file = Image.open(img_file).convert("RGBA")
+    source_file = Image.open(img_file).convert("RGB")
     draw = ImageDraw.Draw(source_file)
     for i in range(boxes.shape[0]):
         box = boxes[i]
